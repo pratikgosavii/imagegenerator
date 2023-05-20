@@ -312,7 +312,7 @@ downloadBtn.forEach(btn => {
 
 const share = async (imm ,title, text) => {
     console.log(imm)
-    const blob = await fetch("{{ data.image.url }}").then(r=>r.blob())
+    const blob = await fetch(imm).then(r=>r.blob())
     const data = {
       files: [
         new File([blob], 'file.png', {
