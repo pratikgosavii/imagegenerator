@@ -21,4 +21,5 @@ from .views import *
 urlpatterns = [
     path('admin-dashbaord/', admin_dashbaord, name="admin_dashbaord"),
     path('dashboard/', dashbaord, name="dashboard"),
+    path('generate_card/', generate_card, name="generate_card"),
 ]
