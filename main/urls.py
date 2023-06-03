@@ -22,4 +22,5 @@ urlpatterns = [
     path('admin-dashbaord/', admin_dashbaord, name="admin_dashbaord"),
     path('dashboard/', dashbaord, name="dashboard"),
     path('generate_card/', generate_card, name="generate_card"),
+    path('all_generate_card/', all_generate_card, name="all_generate_card"),
 ]

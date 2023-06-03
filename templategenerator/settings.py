@@ -42,6 +42,10 @@ INSTALLED_APPS = [
     'users'
 ]
 
+
+AUTH_USER_MODEL = 'users.User'
+
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -128,5 +132,5 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, 'static')]
 # https://docs.djangoproject.com/en/4.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# AUTH_USER_MODEL = 'users.User'
+from django.urls import reverse_lazy
+LOGIN_URL = reverse_lazy('login')

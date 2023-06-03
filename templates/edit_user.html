@@ -142,7 +142,7 @@ body {
 			<div class="profile-sidebar" style="border-radius : 13px;margin-bottom : 10px;">
 				<!-- SIDEBAR USERPIC -->
 				<div class="profile-userpic">
-					<img src="{{ request.user.related_user.all.0.avatar.url }}" id="origini" style="height: 123px;
+					<img src="{{ request.user.avatar.url }}" id="origini" style="height: 123px;
           width: 123px;" class="img-responsive" alt="">
 
 				</div>
@@ -168,7 +168,7 @@ body {
 
                         <input type="text" class="form-control" value="{{ request.user.first_name }}" name="first_name" placeholder="Name"/>
                         <input type="text" class="form-control" value="{{ request.user.email }}" name="email" style="margin-bottom : 0px;" placeholder="email"/>
-                        <input type="number" class="form-control" value="{{ request.user.related_user.all.0.mobile_no }}" name="mobile_no" style="margin-bottom : 0px;" placeholder="Mobile No"/>
+                        <input type="number" class="form-control" value="{{ request.user.phone }}" name="phone" style="margin-bottom : 0px;" placeholder="Mobile No"/>
                         
                         <input style="height: 42px;
                         background: black;

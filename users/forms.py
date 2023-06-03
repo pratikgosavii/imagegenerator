@@ -2,37 +2,63 @@ from django import forms
 from .models import *
 from django.forms import ModelForm
 
-class user_details_Form(forms.ModelForm):
+# class user_details_Form(forms.ModelForm):
     
-    avatar = forms.ImageField(widget = forms.FileInput(attrs = {'class' : 'form-control' } ))
+#     avatar = forms.ImageField(widget = forms.FileInput(attrs = {'class' : 'form-control' } ))
 
 
-    class Meta:
-        model = user_details
-        fields = "__all__"
+#     class Meta:
+#         model = user_details
+#         fields = "__all__"
 
-from django import forms
-
-
-class LoginForm(forms.Form):
-    username = forms.CharField(max_length=65)
-    password = forms.CharField(max_length=65, widget=forms.PasswordInput)
+# from django import forms
 
 
-class EditProfileForm(ModelForm):
+
+
+from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+
+from .models import User
+
+from django.core.validators import FileExtensionValidator
+
+
+class UserCreateForm(UserCreationForm):
+
+    
+    password1 = forms.CharField(label=("Password"), required=False,
+                            widget=forms.PasswordInput)
+    password2 = forms.CharField(label=("Password confirmation"),
+                            widget=forms.PasswordInput, required=False)
+
+    avatar = forms.ImageField(widget=forms.FileInput(attrs={'accept': 'image/png'}))
+
+
+
     class Meta:
         model = User
-        fields = (
-                 'email',
-                 'first_name',
-                )
-        
-from django.contrib.auth.forms import UserCreationForm
-        
-class registerForm(UserCreationForm):
-    first_name = forms.CharField(max_length=101)
-    email = forms.EmailField()
+        fields = ("phone", "avatar", "first_name", "email")
 
-    class Meta:
-        model = User
-        fields = ['username', 'first_name', 'email', 'password1']
+   
+    def save(self, commit=True): 
+        user = super(UserCreateForm, self).save(commit=False) 
+        clean_email = self.cleaned_data["phone"] 
+        clean_password = self.data.get("password") 
+
+        user.phone= clean_email 
+        if clean_password:
+            user.set_password(password)
+
+        if commit:
+
+            user.save()
+
+        custom_user = User()
+
+        custom_user = user 
+        
+        custom_user.save()
+
+        return user
+
+      

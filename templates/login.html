@@ -115,36 +115,17 @@
 <body>
 	<div class="login-page" style=" margin: auto;">
 		<div class="form">
-		  <form class="register-form" enctype="multipart/form-data" action="{% url 'register' %}" method="post">
-
-			{% csrf_token %}
-
-			<h3> Register </h3>
-
-			<input type="text" name="first_name" placeholder="Name"/>
-			<input type="text" name="username" placeholder="Username"/>
-			<input type="email" name="email" placeholder="email"/>
-			<input type="password" name="password1" placeholder="Password"/>
-			<input type="password" name="password2" placeholder="Confirm Password"/>
-			<input type="number" name="mobile_no" style="margin-bottom : 0px;" placeholder="Mobile No"/>
-			<p style="margin:3px;font-family: Roboto, sans-serif;
-			outline: 0;font-size: 14px;">Profile pic </p>
-			<input type="file"  name="avatar" class="" id="customFile" />
-			
-			<button type="submit" style="background : black;">Register</button>
-			<p class="message">Already registered? <a href="#">Sign In</a></p>
-		  </form>
-		  <form class="login-form" action="{% url 'login' %}" method="post"> 
+		 
+		  <form class="login-form" method="post"> 
 
 			{% csrf_token %}
 
 			<h3> Login </h3>
 
 
-			<input type="text" name="username" placeholder="Username"/>
-			<input type="password" name="password" placeholder="Password"/>
+			<input type="number" name="phone" placeholder="Mobile no"/>
 			<button type="submit" style="background : black;">Login</button>
-			<p class="message">Not registered? <a href="#">Create an account</a></p>
+			<p class="message">Not registered? <a href="{% url 'register' %}">Create an account</a></p>
 		  </form>
 		</div>
 	  </div>
