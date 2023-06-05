@@ -54,15 +54,6 @@ def generate_card(data):
     im2 = Image.open(a).resize((968, 944)) 
     template.paste(im2, (47, 59, 1015, 1003))
 
-    print('-------------------------')
-    print('-------------------------')
-    print('-----------avatar--------------')
-    print('-------------------------')
-    
-    print(data.avatar)
-
-    print('-----------avatar--------------')
-
 
     b = str(data.avatar)
 
@@ -92,11 +83,8 @@ def generate_card(data):
 
     pic = Image.open(b).resize((234, 237))
 
-    mask_im = Image.new("L", pic.size, 0)
-    draw = ImageDraw.Draw(mask_im)
-    draw.ellipse((0, 0, 230, 230), fill=255, outline=("black"))
-    mask_im.save('mask_circle.jpg', quality=100)
-    template.paste(pic, (6, 839, 240, 1076), mask_im)
+   
+    template.paste(pic, (6, 839, 240, 1076), pic)
     draw = ImageDraw.Draw(template)
     
     
@@ -118,11 +106,7 @@ def generate_card(data):
     draw.text((265, 920), str(data.first_name), font=font, fill='white', stroke_width=1)
     draw.text((780, 920), str(data.phone), font=font, fill='blue', stroke_width=1)
 
-    # draw.text((315, 125), data['username'], font=font, fill='black')
-
-    # draw.rectangle(((0, 00), (100, 100)), fill="black")
-    # draw.text((20, 70), "something123", font=font)
-
+   
     
     return template
 
@@ -146,7 +130,6 @@ def admin_dashbaord(request):
             records = User.objects.all()
             
             for record in records:
-                print('--------------------------------')
                 card = generate_card(record)
                 card.save(f"static/generated_cards/{record.phone}.jpg")
                 

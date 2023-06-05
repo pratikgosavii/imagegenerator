@@ -273,7 +273,7 @@ body{
 
                   <div class="p-3">
 
-                    <form enctype="multipart/form-data" method="post">
+                    <form enctype="multipart/form-data" id="myform" method="post">
 
                         {% csrf_token %}
 
@@ -315,12 +315,15 @@ body{
 
     <script>
 
-        element = document.getElementById("submit_button")
-        element.addEventListener("click", function(e) {
-            document.getElementById("loader").style.display = "block"
-        element.disabled = true;
+        
 
-        }, false);
+        $(document).ready(function(){
+            $("#myform").on("submit", function(){
+                element = document.getElementById("submit_button")
+                    document.getElementById("loader").style.display = "block"
+                element.disabled = true;
+            });//submit
+          });//do
 
         
         </script>

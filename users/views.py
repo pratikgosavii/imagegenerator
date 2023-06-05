@@ -334,7 +334,7 @@ def edit_user(request):
 
         first_name = request.POST.get('first_name')
         email = request.POST.get('email')
-        avatar = request.FILES['avatar']
+        avatar = request.FILES.getlist('avatar')
 
         print('---------------------------')
         print('---------------------------')
