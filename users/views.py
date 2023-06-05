@@ -127,7 +127,18 @@ def login_page(request):
 
         phone = request.POST.get('phone')
         print(phone)
-        user = User.objects.get(phone = phone)
+
+        try:
+
+            user = User.objects.get(phone = phone)
+
+        except User.DoesNotExist:
+
+            print("user does not exsist")
+
+            return redirect('register')
+
+
         if user:
 
 
@@ -314,20 +325,39 @@ from .models import *
 @login_required()
 def edit_user(request):
 
-    # if request.method == "POST":
+    if request.method == "POST":
 
-    #     print(request.FILES)
 
-    #     form = EditProfileForm(request.POST, request.FILES, instance = request.user)
+        user_instance = User.objects.get(id = request.user.id)
+
+        print(request.FILES)
+
+        first_name = request.POST.get('first_name')
+        email = request.POST.get('email')
+        avatar = request.FILES['avatar']
+
+        print('---------------------------')
+        print('---------------------------')
+        print('---------------------------')
         
-    #     if form.is_valid():
+        print(first_name)
+        print(email)
+        print(avatar)
 
-    #         form.save()
+        print('---------------------------')
+        print('---------------------------')
+        print('---------------------------')
+        user_instance.first_name = first_name
+        user_instance.email = email
+        user_instance.avatar = avatar
+        user_instance.save()
 
-    #     return render(request, 'edit_user.html')
+
+        # user_instance.    
+
+
+        return render(request, 'edit_user.html')
     
-    # else:
+    else:
 
-    #     return render(request, 'edit_user.html')
-
-    pass
+        return render(request, 'edit_user.html')

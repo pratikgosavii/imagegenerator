@@ -47,7 +47,7 @@ class UserCreateForm(UserCreationForm):
 
         user.phone= clean_email 
         if clean_password:
-            user.set_password(password)
+            user.set_password(clean_password)
 
         if commit:
 
@@ -61,4 +61,17 @@ class UserCreateForm(UserCreationForm):
 
         return user
 
-      
+
+
+
+class UsereditForm(UserCreationForm):
+
+     
+
+    avatar = forms.ImageField(widget=forms.FileInput(attrs={'accept': 'image/png'}))
+
+
+
+    class Meta:
+        model = User
+        fields = ("phone", "avatar", "first_name", "email")

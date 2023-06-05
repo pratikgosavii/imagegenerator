@@ -139,19 +139,20 @@ body {
 <div class="container" style="padding : 0px; margin : 0px;">
     <div class="row profile">
 		<div class="col-md-3">
-			<div class="profile-sidebar" style="border-radius : 13px;margin-bottom : 10px;">
-				<!-- SIDEBAR USERPIC -->
-				<div class="profile-userpic">
-					<img src="{{ request.user.avatar.url }}" id="origini" style="height: 123px;
-          width: 123px;" class="img-responsive" alt="">
-
-				</div>
+			
                 <form enctype="multipart/form-data" method="post">
                     {% csrf_token %}
 
-                    <div class="col-12" style="justify-content: center;
-                    display: flex;
-                    margin-top: 8px;">
+                    <div class="profile-sidebar" style="border-radius : 13px;margin-bottom : 10px;">
+                      <!-- SIDEBAR USERPIC -->
+                      <div class="profile-userpic">
+                        <img src="{{ request.user.avatar.url }}" value="{{ request.user.avatar.url }}" name="avatar" id="origini" style="height: 123px;
+                        width: 123px;" class="img-responsive" alt="">
+              
+                      </div>
+
+
+                    <div class="col-12" style="justify-content: center; display: flex; margin-top: 8px;">
 
 
                         <label for="file">
