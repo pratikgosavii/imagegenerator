@@ -1,4 +1,5 @@
 
+from django.http import HttpResponse
 from django.shortcuts import render, redirect
 
 
@@ -165,3 +166,13 @@ def all_generate_card(request):
 
 
 
+
+
+def downlaod_image(request, image_path):
+
+    image_path = "/static/generated_cards/" + image_path + ".jpg"
+
+    file = open(image_path, "rb").read()
+    rea_response = HttpResponse(file, content_type='image/jpeg')
+    rea_response['Content-Disposition'] = 'attachment; filename={}'.format('name.jpg')
+    return rea_response
