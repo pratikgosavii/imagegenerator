@@ -154,7 +154,7 @@ def admin_dashbaord(request):
 @login_required()
 def dashbaord(request):
 
-    return render(request, 'dashbaord.html')
+    return render(request, 'bottom_menu.html')
 
 
 @login_required()
@@ -176,3 +176,17 @@ def downlaod_image(request, image_path):
     rea_response = HttpResponse(file, content_type='image/jpeg')
     rea_response['Content-Disposition'] = 'attachment; filename={}'.format('name.jpg')
     return rea_response
+
+
+def demo(request):
+
+    data = theme.objects.all()
+
+    context ={
+
+
+        'data' : data
+
+    }
+
+    return render(request, 'bottom_menu.html', context)

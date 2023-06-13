@@ -53,7 +53,7 @@ def enter_otp(request):
         #             del request.session["otp_secret_key"]
         #             del request.session["otp_valid_date"]
 
-        #             return redirect('dashboard')
+        #                return redirect('dashboard')
 
 
         #         else:
@@ -80,6 +80,11 @@ def enter_otp(request):
             
             return redirect('dashboard')
 
+        else:
+
+            messages.error(request, "Enterted OTP is incorrect")
+
+            return render(request, 'enter_otp.html')   
 
     else:
 
@@ -169,15 +174,15 @@ def login_page(request):
             print('no user')
 
 
-    if request.user.is_authenticated:
+        if request.user.is_authenticated:
 
-        print('here in authenticte')
+            print('here in authenticte')
 
 
-        if request.user.is_superuser:
-            return redirect('admin_dashbaord')
-        else:
-            return redirect('dashboard')
+            if request.user.is_superuser:
+                return redirect('admin_dashbaord')
+            else:
+                return redirect('dashboard')
 
 
 
