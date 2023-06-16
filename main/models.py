@@ -22,7 +22,7 @@ class theme(models.Model):
 
     title = models.CharField(max_length=50)
     image = models.ImageField(upload_to='static/theme', height_field=None, width_field=None, max_length=None)
-    month = models.CharField(max_length=50,
+    category = models.CharField(max_length=50,
                     choices=CATEGORY_CHOICES,
                   default="general")
     
