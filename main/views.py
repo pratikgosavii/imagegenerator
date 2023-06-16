@@ -155,9 +155,11 @@ def admin_dashbaord(request):
 def dashbaord(request):
 
     festival_data = theme.objects.filter(category = 'festival')
+    birthday_data = theme.objects.filter(category = 'happy birthday')
 
     context = {
         'festival_data' : festival_data
+        'birthday_data' : birthday_data
     }
 
     return render(request, 'bottom_menu.html', context)

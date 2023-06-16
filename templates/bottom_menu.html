@@ -263,133 +263,21 @@
 	<div class="row">
 		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
             <div class="MultiCarousel-inner">
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
-                <div class="item">
-                    <div class="" style="margin:5px;">
-                        
-                        <p>₹ 1</p>
-                        <p>₹ 6000</p>
-                       
-                    </div>
-                </div>
+
+              {% for i in birthday_data %}
+
+              <div class="item" style="margin: 0px 10px;">
+                
+                      
+                <img class="d-block w-100" src="{{ i.image.url }}" style="height: inherit !important;
+                  width: inherit !important;border-radius: 10px;
+                " alt="Second slide">
+
+                     
+              </div>
+
+              {% endfor %}
+
             </div>
             <button class="btn btn-primary leftLst"><</button>
             <button class="btn btn-primary rightLst">></button>
