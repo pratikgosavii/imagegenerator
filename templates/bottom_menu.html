@@ -139,7 +139,7 @@
     .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
         .MultiCarousel .MultiCarousel-inner .item { float: left;}
         .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;width: 122px !important;
-            height: 96px !important;}
+            height: 96px !important;margin: 0px 10px;}
     .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
     .MultiCarousel .leftLst { left:0; }
     .MultiCarousel .rightLst { right:0; }
@@ -226,7 +226,7 @@
 
               {% for i in festival_data %}
 
-                <div class="item" style="margin: 0px 10px;">
+                <div class="item">
                   
                         
                   <img class="d-block w-100" src="{{ i.image.url }}" style="height: inherit !important;
@@ -257,7 +257,7 @@
 
   <h3 style="color : #30bb9e;color: #30bb9e;
   font-size: 14px;
-  font-weight: bolder;margin-left: 10px;"> Birthday </h3>
+  font-weight: bolder;"> Birthday </h3>
 
 <div class="container">
 	<div class="row">
