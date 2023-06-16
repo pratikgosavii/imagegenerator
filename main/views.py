@@ -154,7 +154,13 @@ def admin_dashbaord(request):
 @login_required()
 def dashbaord(request):
 
-    return render(request, 'bottom_menu.html')
+    festival_data = theme.objects.filter(category = 'festival')
+
+    context = {
+        'festival_data' : festival_data
+    }
+
+    return render(request, 'bottom_menu.html', context)
 
 
 @login_required()

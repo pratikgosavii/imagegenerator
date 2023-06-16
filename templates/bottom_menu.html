@@ -157,6 +157,19 @@
         }
 
 
+        .btn-primary {
+          color: #fff;
+          background-color: #30bb9e;
+          border-color: #30bb9e;
+
+        }
+
+        .btn-primary:hover {
+          color: #fff;
+          background-color: #30bb9e;
+          border-color: #30bb9e;
+      }
+
 
 </style>
 
@@ -175,7 +188,7 @@
         <img class="d-block w-100" src="https://images.appypie.com/wp-content/uploads/2022/10/31103040/Birthday-Card-Inspiration-And-Design-Tips-1.jpg" alt="First slide">
       </div>
       <div class="carousel-item">
-        <img class="d-block w-100" src="{% static 'website/image3.png' %}" alt="Second slide">
+        <img class="d-block w-100" src="{% static 'website/image2_visiting_card.png' %}" alt="Second slide">
       </div>
       <div class="carousel-item">
         <img class="d-block w-100" src="{% static 'website/image3.png' %}" alt="Third slide">
@@ -204,19 +217,26 @@
 
   <h3 style="color : #30bb9e;color: #30bb9e;
   font-size: 14px;
-  font-weight: bolder;"> Upcoming festival </h3>
+  font-weight: bolder;margin-left: 10px;"> Upcoming festival </h3>
 
 <div class="container">
 	<div class="row">
-		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+		<div class="MultiCarousel" style="padding: 0px 20px;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
             <div class="MultiCarousel-inner">
+
+              {% for i in festival_data %}
+
                 <div class="item">
                   
                         
-                        <img class="d-block w-100" src="{% static 'website/image3.png' %}" alt="Second slide">
+                  <img class="d-block w-100" src="{% static 'website/image3.png' %}" style="height: inherit !important;
+                    width: inherit !important;border-radius: 10px;
+                  " alt="Second slide">
 
                        
                 </div>
+
+                {% endfor %}
             </div>
             
             
@@ -230,9 +250,14 @@
 
 
 
+<br>
+
+
+
+
   <h3 style="color : #30bb9e;color: #30bb9e;
   font-size: 14px;
-  font-weight: bolder;"> Birthday </h3>
+  font-weight: bolder;margin-left: 10px;"> Birthday </h3>
 
 <div class="container">
 	<div class="row">
