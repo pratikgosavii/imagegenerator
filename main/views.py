@@ -158,7 +158,7 @@ def dashbaord(request):
     birthday_data = theme.objects.filter(category = 'happy birthday')
 
     context = {
-        'festival_data' : festival_data
+        'festival_data' : festival_data,
         'birthday_data' : birthday_data
     }
 
