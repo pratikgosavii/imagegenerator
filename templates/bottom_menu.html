@@ -137,7 +137,7 @@
 
 .MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
     .MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
-        .MultiCarousel .MultiCarousel-inner .item { float: left;margin: 0px 4px;}
+        .MultiCarousel .MultiCarousel-inner .item { float: left;margin:0px 4px;}
         .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;width: 122px !important;
             height: 96px !important;}
     .MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
@@ -222,7 +222,7 @@
 <div class="container">
 	<div class="row">
 		<div class="MultiCarousel" style="padding: 0px 20px;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
-            <div class="MultiCarousel-inner">
+            <div class="MultiCarousel-inner" style="display:flex;">
 
               {% for i in festival_data %}
 
@@ -230,7 +230,7 @@
                   
                         
                   <img class="d-block w-100" src="{{ i.image.url }}" style="height: inherit !important;
-                    width: inherit !important;border-radius: 10px;
+                    width: inherit !important;border-radius: 10px;margin: 0px 10px;
                   " alt="Second slide">
 
                        
@@ -257,27 +257,29 @@
 
   <h3 style="color : #30bb9e;color: #30bb9e;
   font-size: 14px;
-  font-weight: bolder;"> Birthday </h3>
+  font-weight: bolder;margin-left: 10px;"> Birthday </h3>
 
 <div class="container">
 	<div class="row">
-		<div class="MultiCarousel" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
-            <div class="MultiCarousel-inner">
+    <div class="MultiCarousel" style="padding: 0px 20px;" data-items="1,3,5,6" data-slide="1" id="MultiCarousel"  data-interval="1000">
+      <div class="MultiCarousel-inner" style="display:flex;">
 
-              {% for i in birthday_data %}
+            {% for i in birthday_data %}
 
               <div class="item">
                 
                       
                 <img class="d-block w-100" src="{{ i.image.url }}" style="height: inherit !important;
-                  width: inherit !important;border-radius: 10px;
+                  width: inherit !important;border-radius: 10px;margin: 0px 10px;
                 " alt="Second slide">
 
-                     
+                {% comment %} <p> {{ i.title }} </p> {% endcomment %}
+
+                    
               </div>
 
               {% endfor %}
-
+                
             </div>
             <button class="btn btn-primary leftLst"><</button>
             <button class="btn btn-primary rightLst">></button>
