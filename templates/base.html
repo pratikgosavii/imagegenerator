@@ -5,7 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    <meta name="viewport" 
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link  rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/icon?family=Material+Icons">
@@ -18,6 +19,147 @@
 
       
   }
+
+
+  
+
+.MultiCarousel { float: left; overflow: hidden; padding: 15px; width: 100%; position:relative; }
+.MultiCarousel .MultiCarousel-inner { transition: 1s ease all; float: left; }
+    .MultiCarousel .MultiCarousel-inner .item { float: left;margin:0px 4px;}
+    .MultiCarousel .MultiCarousel-inner .item > div { text-align: center; padding:10px; margin:10px; background:#f1f1f1; color:#666;width: 122px !important;
+        height: 96px !important;}
+.MultiCarousel .leftLst, .MultiCarousel .rightLst { position:absolute; border-radius:50%;top:calc(50% - 20px); }
+.MultiCarousel .leftLst { left:0; }
+.MultiCarousel .rightLst { right:0; }
+
+    .MultiCarousel .leftLst.over, .MultiCarousel .rightLst.over { pointer-events: none; background:#ccc; }
+
+
+
+
+    .MultiCarousel .MultiCarousel-inner .item{
+
+        width: 111px !important;
+        height: 86px !important;
+
+    }
+
+
+
+  
+  
+.btncustome-hover {
+    width: 165px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+    margin: 9px 7px;
+    height: 31px;
+    text-align: center;
+    border: none;
+    background-size: 300% 100%;
+    border-radius: 50px;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btncustome-hover:hover {
+    background-position: 100% 0;
+    moz-transition: all .4s ease-in-out;
+    -o-transition: all .4s ease-in-out;
+    -webkit-transition: all .4s ease-in-out;
+    transition: all .4s ease-in-out;
+}
+
+.btncustome-hover:focus {
+    outline: none;
+}
+
+            
+           
+.btn-grad2 {
+    background-image: linear-gradient(to right, #7b4397 0%, #dc2430  51%, #7b4397  100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad2:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+
+           
+  .btn-grad1 {
+    background-image: linear-gradient(to right, #43cea2 0%, #185a9d  51%, #43cea2  100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad1:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+           
+           
+  .btn-grad3 {
+    background-image: linear-gradient(to right, #6190E8 0%, #A7BFE8  51%, #6190E8  100%);
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: white;            
+    box-shadow: 0 0 20px #eee;
+    border-radius: 10px;
+    display: block;
+  }
+
+  .btn-grad3:hover {
+    background-position: right center; /* change the direction of the change here */
+    color: #fff;
+    text-decoration: none;
+  }
+ 
+ 
+ 
+ 
+     
+.btncustome-hover.color-2 {
+    background-image: linear-gradient(to right, #f5ce62, #e43603, #fa7199, #e85a19);
+    box-shadow: 0 4px 15px 0 rgba(229, 66, 10, 0.75);
+}
+.btncustome-hover.color-3 {
+    background-image: linear-gradient(to right, #667eea, #764ba2, #6B8DD6, #8E37D7);
+    box-shadow: 0 4px 15px 0 rgba(116, 79, 168, 0.75);
+}
+
+.w-100{
+    height: 164px !important;
+}
+
+
+
+
+
+
+
 
   .fa-share-alt:before {
     content: "\f1e0";
@@ -85,6 +227,68 @@
   <body style="margin-top: 58px; background-color: white; !important">
 
 
+
+         <!-- Animated -->
+            {% if messages %}
+
+    {% for message in messages %}
+
+        {% if message.level == "success" %}
+
+            <div class="alert alert-success alert-dismissible fade show" role="alert">
+                {{ message }}
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            
+        {% endif %}
+
+        {% if message.tags == 'error' %}
+
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        {% endif %}
+
+        {% if message.level == "info" %}
+
+        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {% comment %} <strong>Holy guacamole!</strong> {% endcomment %}
+            {{ message }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+
+        {% endif %}
+        {% endfor %}
+        {% endif %}
+
+      
+
+        {% if form.errors %}
+            
+                {% for field in form %} 
+                    {% if field.errors %}
+
+                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                        {{ field.label }} : {{ field.errors|striptags }}
+                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    {% endif %}
+                {% endfor %}
+            </div>
+    {% endif %}
+
+
+
     {% block content %}
 
 
@@ -93,15 +297,47 @@
 
     <div class="col-12" style="position: fixed;
     top: 0px;height: 47px;
-    background: white;box-shadow: 0px 15px 10px -15px #111;  text-align: center; ">
+    background: white;box-shadow: 0px 15px 10px -15px #111;  text-align: center; padding: 0px;">
 
         <p style="margin-top: 10px;"> {% block heading %} {% endblock heading %}</p>
 
-        <a href="{% url 'logout' %}" style="top: 10px;
-        position: absolute;
-        right: 11px;"> Logout </a>
+        {% block logout_custome %}
+
+        {% endblock logout_custome %}
+
 
     </div>
+
+
+
+
+    
+
+    <nav class="nav">
+        {% with url_name=request.resolver_match.url_name %}
+  
+        {% if request.user.is_superuser %}
+  
+          <a href="{% url 'admin_dashbaord' %}" class="nav__link {% if url_name == 'admin_dashbaord' %}nav__link--active{% endif %}">
+            <i class="material-icons nav__icon">home</i>
+          </a>
+        
+          {% else %}
+  
+          <a href="{% url 'dashboard' %}" class="nav__link {% if url_name == 'dashboard' %}nav__link--active{% endif %}">
+            <i class="material-icons nav__icon">home</i>
+          </a>
+  
+        {% endif %}
+  
+        <a href="{% url 'user_profile' %}" class="nav__link {% if url_name == 'user_profile' %}nav__link--active{% endif %}">
+          <i class="material-icons nav__icon">person</i>
+        </a>
+  
+        {% endwith %}
+        
+      </nav>
+
     
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>

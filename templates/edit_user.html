@@ -136,6 +136,15 @@ body {
 
 
 
+
+{% block logout_custome %}
+<a href="{% url 'logout' %}" style="top: 10px;
+position: absolute;
+right: 11px;"> Logout </a>
+{% endblock logout_custome %}
+
+
+
 <div class="container" style="padding : 0px; margin : 0px;">
     <div class="row profile">
 		<div class="col-md-3">
@@ -145,10 +154,12 @@ body {
 
                     <div class="profile-sidebar" style="border-radius : 13px;margin-bottom : 10px;">
                       <!-- SIDEBAR USERPIC -->
-                      <div class="profile-userpic">
+                      <div class="profile-userpic col-12">
+                        <div class="row">
                         <img src="{{ request.user.avatar.url }}" value="{{ request.user.avatar.url }}" name="avatar" id="origini" style="height: 123px;
                         width: 123px;" class="img-responsive" alt="">
               
+                      </div>
                       </div>
 
 
@@ -172,8 +183,8 @@ body {
                         <input type="number" class="form-control" value="{{ request.user.phone }}" name="phone" style="margin-bottom : 0px;" placeholder="Mobile No"/>
                         
                         <input style="height: 42px;
-                        background: black;
-                        color: white;" type="submit" value="submit">
+                        background: #30bb9e;border-color : #30bb9e;border: 1px solid;
+                        color: white;" type="submit" value="Submit">
                     </div>
                 </form>
      

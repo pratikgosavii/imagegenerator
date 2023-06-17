@@ -24,5 +24,5 @@ urlpatterns = [
     path('generate_card/', generate_card, name="generate_card"),
     path('all_generate_card/', all_generate_card, name="all_generate_card"),
     path('downlaod_image/<image_path>', downlaod_image, name="downlaod_image"),
-    path('demo', demo, name="demo"),
+    path('theme-details/<theme_id>', theme_details, name="theme_details"),
 ]

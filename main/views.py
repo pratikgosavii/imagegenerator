@@ -195,15 +195,16 @@ def downlaod_image(request, image_path):
     return rea_response
 
 
-def demo(request):
-
-    data = theme.objects.all()
-
-    context ={
 
 
-        'data' : data
 
+def theme_details(request, theme_id):
+
+    theme_instance = theme.objects.get(id = theme_id)
+
+    context = {
+
+        'theme_instance' : theme_instance
     }
 
-    return render(request, 'bottom_menu.html', context)
+    return render(request, 'theme_details.html', context)
