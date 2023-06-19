@@ -25,4 +25,5 @@ urlpatterns = [
     path('all_generate_card/', all_generate_card, name="all_generate_card"),
     path('downlaod_image/<image_path>', downlaod_image, name="downlaod_image"),
     path('theme-details/<theme_id>', theme_details, name="theme_details"),
+    path('select-frame', select_frame, name="select_frame"),
 ]

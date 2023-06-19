@@ -264,75 +264,7 @@ gap: 13px;">
         </div>
         <img id="myImg" src="/static/generated_cards/{{ request.user.phone }}.jpg">
     </div>
-    {% comment %} <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1WbasCgKuGP4PIsHOnkWktq-UrAkuarFu&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1_T9vSCp4CLFpy1wv6jPYRLbWmDUxi8xK&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1WyO69ulLqPfoAbPI2wzwrQrahphHVZqx&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1WDqdhmELbMs_CsELSKWnJF-E2gIl9l7R&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1Vo2qMJW6_LYGAF2Ka35KVA7Be7BL0kUe&export=view" data-downloadImg>
-    </div> {% endcomment %}
-</div>
-
-<div class="container">
-    {% comment %} <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1KydRSGtwukhPUn4ByPpu2oTXLSLzkTXV&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1WbasCgKuGP4PIsHOnkWktq-UrAkuarFu&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1_T9vSCp4CLFpy1wv6jPYRLbWmDUxi8xK&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1WyO69ulLqPfoAbPI2wzwrQrahphHVZqx&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1WDqdhmELbMs_CsELSKWnJF-E2gIl9l7R&export=view" data-downloadImg>
-    </div>
-    <div class="imageContainer">
-        <div class="downloadBtn">
-            <i class="fa-solid fa-arrow-down"></i>
-        </div>
-        <img src="https://drive.google.com/uc?id=1Vo2qMJW6_LYGAF2Ka35KVA7Be7BL0kUe&export=view" data-downloadImg>
-    </div> {% endcomment %}
+   
 </div>
 
 
@@ -344,35 +276,8 @@ gap: 13px;">
 
 <script>
 
-    // --------------------- Created By InCoder ---------------------
-{% comment %} 
-let downloadBtn = document.querySelectorAll('.downloadBtn')
-image = document.querySelectorAll('[data-downloadImg]')
 
-function toDataURL(url) {
-    return fetch(url).then((response) => {
-        return response.blob();
-    }).then(blob => {
-        return URL.createObjectURL(blob);
-    })
-}
-
-async function download(url) {
-    const a = document.createElement("a");
-    a.href = await url;
-    a.download = "Download.png";
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-}
-
-downloadBtn.forEach(btn => {
-    btn.addEventListener('click', () => {
-        let imageURL = btn.parentElement.querySelector('img').src
-        download(toDataURL(imageURL))
-    })
-}) {% endcomment %}
-
+    
 const share = async (imm ,title, text) => {
     console.log(imm)
     const blob = await fetch(imm).then(r=>r.blob())

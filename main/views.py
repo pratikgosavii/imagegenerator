@@ -208,3 +208,10 @@ def theme_details(request, theme_id):
     }
 
     return render(request, 'theme_details.html', context)
+
+
+def select_frame(request):
+
+
+
+    return render(request, 'select_frame.html')

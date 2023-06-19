@@ -128,68 +128,87 @@ def admin_password(request):
 
 def login_page(request):
 
-    if request.method == 'POST':
-
-        phone = request.POST.get('phone')
-        print(phone)
-
-        try:
-
-            user = User.objects.get(phone = phone)
-
-        except User.DoesNotExist:
-
-            print("user does not exsist")
-
-            return redirect('register')
+    if request.user.is_authenticated:
 
 
-        if user:
+        if request.user.is_superuser:
+            print('admin')
 
+            return redirect('admin_dashbaord')
+        
 
-
-            if user.is_superuser:
-                print('admin')
-
-                request.session['phone'] = phone
-                return redirect('admin_password')
-
-
-            else:
-
-                print('sdsdsd')
-                send_otp(request)
-
-                # login(request, user)
-
-
-
-
-                request.session["phone"] = phone
-                return redirect("enter_otp")
-
-      
         else:
 
-            print('no user')
-
-
-        if request.user.is_authenticated:
-
-            print('here in authenticte')
-
-
-            if request.user.is_superuser:
-                return redirect('admin_dashbaord')
-            else:
-                return redirect('dashboard')
+            return redirect('dashboard')
 
 
 
     else:
 
-        context = {'form': forms}
-        return render(request, 'login.html', context)
+            
+
+        if request.method == 'POST':
+
+            phone = request.POST.get('phone')
+            print(phone)
+
+            try:
+
+                user = User.objects.get(phone = phone)
+
+            except User.DoesNotExist:
+
+                print("user does not exsist")
+
+                return redirect('register')
+
+
+            if user:
+
+
+
+                if user.is_superuser:
+                    print('admin')
+
+                    request.session['phone'] = phone
+                    return redirect('admin_password')
+
+
+                else:
+
+                    print('sdsdsd')
+                    send_otp(request)
+
+                    # login(request, user)
+
+
+
+
+                    request.session["phone"] = phone
+                    return redirect("enter_otp")
+
+        
+            else:
+
+                print('no user')
+
+
+            if request.user.is_authenticated:
+
+                print('here in authenticte')
+
+
+                if request.user.is_superuser:
+                    return redirect('admin_dashbaord')
+                else:
+                    return redirect('dashboard')
+
+
+
+        else:
+
+            context = {'form': forms}
+            return render(request, 'login.html', context)
 
 
 def logout_view(request):
