@@ -166,26 +166,8 @@ def login_page(request):
             if user:
 
 
-
-                if user.is_superuser:
-                    print('admin')
-
-                    request.session['phone'] = phone
-                    return redirect('admin_password')
-
-
-                else:
-
-                    print('sdsdsd')
-                    send_otp(request)
-
-                    # login(request, user)
-
-
-
-
-                    request.session["phone"] = phone
-                    return redirect("enter_otp")
+                request.session["phone"] = phone
+                return redirect("enter_otp")
 
         
             else:

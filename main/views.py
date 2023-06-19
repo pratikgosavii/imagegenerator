@@ -36,7 +36,7 @@ def add_corners(im, rad):
 
     
 
-def generate_card(data):
+def generate_card(request):
 
    
     font = ImageFont.truetype("static/OpenSans-Semibold.ttf", size=32)
@@ -47,7 +47,12 @@ def generate_card(data):
     template = Image.open('static/theme/theme_demo1.jpg')
     template = template.resize((1080, 1080))
 
-    a = theme.objects.last()
+
+
+    theme_id = request.session['theme_id']
+
+
+    a = theme.objects.get(id = theme_id)
 
     a = a.image.url
     a = a[1:]
@@ -55,6 +60,7 @@ def generate_card(data):
     im2 = Image.open(a).resize((968, 944)) 
     template.paste(im2, (47, 59, 1015, 1003))
 
+    data = request.user
 
     b = str(data.avatar)
 
@@ -90,7 +96,7 @@ def generate_card(data):
     
     
     im2 = Image.open('static/images/caller_icon.png').resize((42, 34)) 
-    template.paste(im2, (717,925, 759, 959))
+    template.paste(im2, (717,925, 759, 959), im2)
 
     im2 = Image.open('static/images/location_icon.png').resize((23, 24)) 
     template.paste(im2, (241, 988, 264, 1012), im2)
@@ -108,9 +114,15 @@ def generate_card(data):
     draw.text((780, 920), str(data.phone), font=font, fill='blue', stroke_width=1)
 
    
-    
-    return template
+    card = template
+    card.save(f"static/generated_cards/{data.phone}.jpg")
+    xx = f"/static/generated_cards/{data.phone}.jpg"
+    context = {
 
+        'path' : xx
+    }
+    return render(request, 'display_image.html', context)
+                
 
 
 @user_passes_test(lambda u: u.is_superuser)
@@ -202,6 +214,9 @@ def theme_details(request, theme_id):
 
     theme_instance = theme.objects.get(id = theme_id)
 
+    request.session['theme_id'] = str(theme_id)
+
+
     # session.
 
     context = {
@@ -214,6 +229,6 @@ def theme_details(request, theme_id):
 
 def select_frame(request):
 
-
+    request.session['frame_id'] = str('1')
 
     return render(request, 'select_frame.html')
