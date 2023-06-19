@@ -104,16 +104,16 @@ def generate_card(request):
     template.paste(im2, (241, 988, 264, 1012), im2)
 
    
-    draw.text((278, 985), str(data.address), font=font1, fill='black')
+    draw.text((278, 985), str('RTO Road giri nagar'), font=font1, fill='black')
 
     
     # draw.rectangle((10, 345), fill="black")
     position = (295, 920)
 
-    left, top, right, bottom = draw.textbbox((position), str(data.first_name), font=font)
+    left, top, right, bottom = draw.textbbox((position), str("Pratik Gosavi"), font=font)
     draw.rectangle((left-55, top-15, right+0, bottom+15), fill="blue")
-    draw.text((265, 920), str(data.first_name), font=font, fill='white', stroke_width=1)
-    draw.text((780, 920), str(data.phone), font=font, fill='blue', stroke_width=1)
+    draw.text((265, 920), str("Pratik Gosavi"), font=font, fill='white', stroke_width=1)
+    draw.text((780, 920), str("8237377298"), font=font, fill='blue', stroke_width=1)
 
    
     card = template
