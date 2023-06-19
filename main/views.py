@@ -202,6 +202,8 @@ def theme_details(request, theme_id):
 
     theme_instance = theme.objects.get(id = theme_id)
 
+    # session.
+
     context = {
 
         'theme_instance' : theme_instance
