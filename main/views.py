@@ -56,6 +56,8 @@ def generate_card(request):
 
     a = a.image.url
     a = a[1:]
+    a = a.split('media/')
+    a = a[1]
 
     im2 = Image.open(a).resize((968, 944)) 
     template.paste(im2, (47, 59, 1015, 1003))
