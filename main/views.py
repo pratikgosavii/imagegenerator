@@ -52,7 +52,7 @@ def generate_card(request):
     theme_id = request.session['theme_id']
 
 
-    a = theme.objects.get(id = theme_id)
+    a = theme.objects.last()
 
     a = a.image.url
     a = a[1:]
